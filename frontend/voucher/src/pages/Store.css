@@ -1,0 +1,53 @@
+.store-page {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.store-page h2 {
+  color: #6a5acd;
+  margin-bottom: 10px;
+}
+
+.store-page p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.vouchers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.voucher-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.voucher-card h4 {
+  color: #6a5acd;
+  margin: 5px 0;
+}
+
+.voucher-card button {
+  margin-top: auto;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #6a5acd, #00bfff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.voucher-card button:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,31 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from './pages/navbar.jsx';
+import Home from './pages/Home.jsx';
+import Footer from "./pages/Footer.jsx";
+import Stores from "./pages/Stores.jsx";
+import Signup from "./pages/signup.jsx";
+import Login from "./pages/Login.jsx";
+import Deals from "./pages/Deals.jsx";
+import Profile from "./pages/Profile.jsx";
+import Store from "./pages/Store.jsx";
+import './App.css'
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/stores' element={<Stores/>} />
+        <Route path='/store/:id' element={<Store/>} />
+        <Route path='/signup' element={<Signup/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/deals' element={<Deals/>} />
+        <Route path='/profile' element={<Profile/>} />
+      </Routes>
+      <Footer />
+    </>
+  )
+}
+
+export default App
