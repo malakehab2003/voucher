@@ -20,6 +20,17 @@ module.exports = {
         allowNull: true,
       },
 
+      category_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'category',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+      },
+
       storeId: {
         type: Sequelize.INTEGER,
         references: { model: "stores", key: "id" },

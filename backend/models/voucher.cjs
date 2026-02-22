@@ -42,6 +42,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
 
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+
     percentage: {
       type: DataTypes.FLOAT,
       allowNull: true,

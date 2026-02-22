@@ -15,6 +15,17 @@ module.exports = {
         allowNull: false,
       },
 
+      category_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'category',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+      },
+
       phone: {
         type: Sequelize.JSON,
         allowNull: false,

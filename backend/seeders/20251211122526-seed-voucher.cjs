@@ -17,6 +17,7 @@ module.exports = {
       [
         {
           name: "de50",
+          category_id: 1,
           description: "this is description",
           storeId: 1,
           percentage: 10,
@@ -31,6 +32,7 @@ module.exports = {
 
         {
           name: "de100",
+          category_id: 2,
           description: "this is description",
           storeId: 1,
           percentage: null,
@@ -45,6 +47,7 @@ module.exports = {
 
         {
           name: "adi20",
+          category_id: 3,
           description: "this is description",
           storeId: 2,
           percentage: 20,
@@ -59,6 +62,7 @@ module.exports = {
 
         {
           name: "hot200",
+          category_id: 4,
           description: "this is description",
           storeId: 4,
           percentage: null,
@@ -73,6 +77,7 @@ module.exports = {
 
         {
           name: "winter30",
+          category_id: 3,
           description: "this is description",
           storeId: 1,
           percentage: 30,
@@ -87,6 +92,7 @@ module.exports = {
 
         {
           name: "summer10",
+          category_id: 2,
           description: "this is description",
           storeId: 1,
           percentage: 10,

@@ -15,6 +15,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "storeId",
         as: "vouchers",
       });
+
+      Store.belongsTo(models.ProductCategory, {
+        foreignKey: 'category_id',
+        as: 'category',
+      });
     }
   }
   Store.init({
@@ -34,6 +39,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.JSON,
       allowNull: false,
       defaultValue: [],
+    },
+
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
 
     address: {

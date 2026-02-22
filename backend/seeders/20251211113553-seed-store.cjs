@@ -17,6 +17,7 @@ module.exports = {
       [
         {
           name: "adidas",
+          category_id: 1,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
@@ -29,6 +30,7 @@ module.exports = {
 
         {
           name: "nike",
+          category_id: 2,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
@@ -41,6 +43,7 @@ module.exports = {
 
         {
           name: "puma",
+          category_id: 3,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
@@ -53,6 +56,7 @@ module.exports = {
 
         {
           name: "bata",
+          category_id: 2,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
@@ -65,6 +69,7 @@ module.exports = {
 
         {
           name: "gucci",
+          category_id: 1,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
@@ -76,6 +81,7 @@ module.exports = {
         },
         {
           name: "wakiki",
+          category_id: 3,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
@@ -87,6 +93,7 @@ module.exports = {
         },
         {
           name: "zara",
+          category_id: 4,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
@@ -98,6 +105,7 @@ module.exports = {
         },
         {
           name: "or",
+          category_id: 4,
           phone: JSON.stringify(["+201111111411", "+201111111412", "+201111111413"]),
           owner: JSON.stringify([
             { name: "Ahmed", role: "Manager" },
