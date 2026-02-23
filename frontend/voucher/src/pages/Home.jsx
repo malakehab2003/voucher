@@ -3,21 +3,26 @@ import axios from "axios";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
-
 export default function Home() {
   const [vouchers, setVouchers] = useState([]);
+
+  // Fake vouchers
+  const fakeVouchers = [
+    { id: "1", name: "Gaming Voucher", price: 10 },
+    { id: "2", name: "Shopping Voucher", price: 20 },
+    { id: "3", name: "Gift Card", price: 15 },
+  ];
 
   const fetchVouchers = async () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get("http://localhost:5000/api/voucher/list", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       });
       setVouchers(res.data.vouchers);
     } catch (err) {
-      console.log(err.response?.data || err.message);
+      console.log("Backend failed, using fake vouchers:", err.message);
+      setVouchers(fakeVouchers);
     }
   };
 

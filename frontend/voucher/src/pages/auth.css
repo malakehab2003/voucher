@@ -3,9 +3,9 @@
   margin: 50px auto;
   padding: 25px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.95); /* شبه Navbar شفاف */
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  border: 1px solid #6a5acd; /* لون إطار متناسق */
+  border: 1px solid #6a5acd;
 }
 
 .auth-container h2 {
@@ -52,4 +52,16 @@
 .auth-container button:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Sign Up link style */
+.auth-container .signup-link {
+  text-align: center;
+  color: #6a5acd;
+  font-weight: bold;
+}
+
+.signUp {
+  display: flex;
+  flex-direction: column;
 }

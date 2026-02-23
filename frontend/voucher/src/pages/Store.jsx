@@ -8,13 +8,38 @@ export default function Store() {
   const [store, setStore] = useState(null);
   const [vouchers, setVouchers] = useState([]);
 
+  // Fake data
+  const fakeStores = [
+    {
+      id: "1",
+      name: "Store One",
+      description: "This is a fake store description.",
+      vouchers: [
+        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
+        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
+      ],
+    },
+    {
+      id: "2",
+      name: "Store Two",
+      description: "Another fake store with vouchers.",
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+    },
+  ];
+
   const fetchStore = async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/store/${id}`);
       setStore(res.data.store);
       setVouchers(res.data.store.vouchers);
     } catch (err) {
-      console.log(err.response?.data || err.message);
+      console.log("Backend failed, using fake store:", err.message);
+      // Use fake store based on id
+      const fake = fakeStores.find((s) => s.id === id) || fakeStores[0];
+      setStore(fake);
+      setVouchers(fake.vouchers);
     }
   };
 
