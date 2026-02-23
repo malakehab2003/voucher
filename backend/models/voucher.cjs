@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
         as: "users"
       });
 
+      Voucher.belongsTo(models.Category, {
+        foreignKey: 'category_id',
+        as: 'category',
+      });
+
       Voucher.belongsTo(models.Store, {
         foreignKey: "storeId",
         as: "store",

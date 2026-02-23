@@ -1,25 +1,36 @@
-import { Voucher, Store } from "../models/db.js";
+import { Voucher, Store, Category } from "../models/db.js";
+
 
 export const list = async (req, res) => {
     try {
+        const { category_id } = req.query;
+        const whereCondition = {};
+
+        if (category_id) {
+        whereCondition.category_id = category_id;
+        }
+
         const vouchers = await Voucher.findAll({
-            include: [
-                {
-                    model: Store,
-                    as: 'store'
-                }
-            ],
+        where: whereCondition,
+        include: [
+            {
+            model: Store,
+            as: 'store'
+            },
+            
+            {
+            model: Category,
+            as: 'category'
+            }
+        ]
         });
 
-        if (!vouchers) return res.status(400).send({ message: "Can't get vouchers" });
+        return res.status(200).send({ vouchers });
 
-        return res.status(200).send({
-            vouchers,
-        });
     } catch (err) {
         return res.status(400).send({ error: err.message });
     }
-}
+};
 
 
 export const getVoucher = async (req, res) => {

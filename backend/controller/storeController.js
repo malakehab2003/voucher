@@ -1,9 +1,21 @@
-import { Store, Voucher } from '../models/db.js';
+import { Store, Voucher, Category } from '../models/db.js';
 
 export const listStores = async (req, res) => {
     try {
-        const stores = await Store.findAll();
+        const { category_id } = req.query;
+
+        const whereCondition = {};
+
+        if (category_id) {
+        whereCondition.category_id = category_id;
+        }
+
+        const stores = await Store.findAll({
+        where: whereCondition
+        });
+
         return res.status(200).json({ stores });
+
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }
@@ -17,6 +29,11 @@ export const getStoreById = async (req, res) => {
                 {
                     model: Voucher,
                     as: 'vouchers',
+                },
+
+                {
+                    model: Category,
+                    as: 'category',
                 }
             ]
 
