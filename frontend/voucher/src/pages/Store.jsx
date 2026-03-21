@@ -23,6 +23,18 @@ export default function Store() {
     },
 
     {
+      id: "5",
+      name: "Max gym",
+      description: "This gym for healthy and athletics.",
+      vouchers: [
+        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
+        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
+      ],
+
+      images: ["max_gym.jpeg"]
+    },
+
+    {
       id: "2",
       name: "Tiny Kids",
       description: "This is store for selling kids clothes.",
