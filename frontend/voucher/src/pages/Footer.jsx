@@ -51,7 +51,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={faTelegram} />
             </a>
 
-            <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/201025311724" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faWhatsapp} />
             </a>
 
