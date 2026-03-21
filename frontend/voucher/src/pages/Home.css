@@ -4,42 +4,102 @@
 }
 
 /* HERO */
-.hero {
-  height: 70vh;
-  background: linear-gradient(135deg, #6a5acd, #00bfff);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.hero h1 {
+.loading {
   font-size: 3rem;
-  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 100px;
+  color: gray;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+/* HERO */
+.hero {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+  color: white;
 }
 
-.hero-btn {
-  margin-top: 20px;
-  padding: 12px 25px;
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: fade 1s ease;
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  font-size: 30px;
+  background: rgba(255,255,255,0.7);
   border: none;
-  border-radius: 30px;
-  background: white;
-  color: #333;
-  font-weight: bold;
+  padding: 10px 15px;
   cursor: pointer;
-  transition: 0.3s ease;
+  border-radius: 50%;
+  transition: 0.3s;
 }
 
-.hero-btn:hover {
-  transform: scale(1.05);
+.arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+/* DOTS */
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 4;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  display: inline-block;
+  background: gray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: white;
+}
+
+/* ANIMATION */
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* STORE */

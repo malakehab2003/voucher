@@ -14,13 +14,39 @@
 
 /* LOGO */
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+/* text container */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+/* main title */
+.main-logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: #6a5acd;
-  padding-left: 10px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+}
+
+/* subtitle */
+.sub-logo {
+  font-size: 15px;
+  color: #6a5acd;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+/* logo image */
+.nav-logo img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
 }
 
 .right-section {
@@ -35,14 +61,7 @@
   cursor: pointer;
 }
 
-img {
-  width: 100px;
-  margin-top: 20px;
-}
-
-.nav-logo span {
-  color: #00bfff;
-}
+/* ❌ شيلنا img العام اللي كان بيبوظ التصميم */
 
 /* LINKS */
 .nav-links {

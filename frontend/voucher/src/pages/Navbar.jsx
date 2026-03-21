@@ -45,7 +45,13 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        Voucher
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+          <div className="logo-text">
+            <span className="main-logo">Voucher</span>
+            <span className="sub-logo">Everything</span>
+          </div>
+        </Link>
+
         <Link to="/" onClick={() => setMenuOpen(false)}>
           <img src="logo.png" alt="store" />
         </Link>

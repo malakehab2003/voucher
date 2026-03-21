@@ -1,66 +1,175 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  const [vouchers, setVouchers] = useState([]);
+  const [stores, setStores] = useState([]);
+  const [index, setIndex] = useState(0);
 
-  // Fake vouchers
-  const fakeVouchers = [
-    { id: "1", name: "Gaming Voucher", price: 10 },
-    { id: "2", name: "Shopping Voucher", price: 20 },
-    { id: "3", name: "Gift Card", price: 15 },
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const fakeStores = [
+    {
+      id: "1",
+      name: "Volo",
+      description: "Men clothes store",
+      images: ["volo.jpg"],
+    },
+    {
+      id: "2",
+      name: "Tiny Kids",
+      description: "Kids clothes store",
+      images: ["tiny_kids.jpeg"],
+    },
+    {
+      id: "3",
+      name: "Real Soft House",
+      description: "Courses institute",
+      images: ["real_soft_house.jpg"],
+    },
+    {
+      id: "4",
+      name: "Dr Mark",
+      description: "Dentist",
+      images: ["dr_mark_dentist.jpeg"],
+    },
   ];
 
-  const fetchVouchers = async () => {
+  const fetchStores = async () => {
     try {
-      const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/voucher/list", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setVouchers(res.data.vouchers);
+      const res = await axios.get("http://localhost:5000/api/store/list");
+
+      const data = res.data.stores.map((s) => ({
+        ...s,
+        image:
+          s.images?.[0]
+            ? "/" + s.images[0]
+            : "https://via.placeholder.com/800x400?text=" + s.name,
+      }));
+
+      setStores(data);
     } catch (err) {
-      console.log("Backend failed, using fake vouchers:", err.message);
-      setVouchers(fakeVouchers);
+      console.log("Using fake stores");
+      setStores(fakeStores);
     }
   };
 
   useEffect(() => {
-    fetchVouchers();
+    fetchStores();
   }, []);
+
+  useEffect(() => {
+    if (stores.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % stores.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [stores.length]);
+
+  // reset index
+  useEffect(() => {
+    setIndex(0);
+  }, [stores]);
+
+  const nextSlide = () => {
+    setIndex((prev) => (prev + 1) % stores.length);
+  };
+
+  const prevSlide = () => {
+    setIndex((prev) =>
+      prev === 0 ? stores.length - 1 : prev - 1
+    );
+  };
+
+  // swipe
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) nextSlide();
+    if (touchStartX.current - touchEndX.current < -50) prevSlide();
+  };
 
   return (
     <div className="home">
 
-      {/* HERO SECTION */}
-      <section className="hero">
-        <h1>Buy Digital Vouchers Instantly 🎁</h1>
-        <p>Best deals on gaming, shopping, and gift cards</p>
-        <Link to="/stores">
-          <button className="hero-btn">Shop Now</button>
-        </Link>
+      {/* HERO */}
+      <section
+        className="hero"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {stores.length === 0 ? (
+          <h1 className="loading">Loading Stores...</h1>
+        ) : (
+          <>
+            {/* Background */}
+            <div
+              key={stores[index].images[0]}
+              className="hero-bg"
+              style={{
+                backgroundImage: `url(${stores[index].images[0]})`,
+              }}
+            ></div>
+
+            {/* Content */}
+            <div className="hero-content">
+              <h1>{stores[index].name}</h1>
+              <p>{stores[index].description}</p>
+
+              <Link to="/stores">
+                <button className="hero-btn">Explore Store</button>
+              </Link>
+            </div>
+
+            {/* LEFT */}
+            <button className="arrow left" onClick={prevSlide}>
+              ❮
+            </button>
+
+            {/* RIGHT */}
+            <button className="arrow right" onClick={nextSlide}>
+              ❯
+            </button>
+
+            {/* DOTS */}
+            <div className="hero-dots">
+              {stores.map((_, i) => (
+                <span
+                  key={i}
+                  className={i === index ? "dot active" : "dot"}
+                  onClick={() => setIndex(i)}
+                ></span>
+              ))}
+            </div>
+          </>
+        )}
       </section>
 
-      {/* STORE SECTION */}
+      {/* STORE GRID */}
       <section className="store">
-        <h2>Popular Vouchers</h2>
+        <h2>Popular Stores</h2>
 
         <div className="voucher-grid">
-          {vouchers.length === 0 ? (
-            <p>Loading vouchers...</p>
-          ) : (
-            vouchers.map((voucher) => (
-              <div className="voucher-card" key={voucher.id}>
-                <h3>{voucher.name}</h3>
-                <p>${voucher.price} Available</p>
-                <button>Buy Now</button>
-              </div>
-            ))
-          )}
+          {stores.map((store) => (
+            <div className="voucher-card" key={store.id}>
+              <h3>{store.name}</h3>
+              <p>{store.description}</p>
+              <button>View Store</button>
+            </div>
+          ))}
         </div>
       </section>
-
     </div>
   );
 }
