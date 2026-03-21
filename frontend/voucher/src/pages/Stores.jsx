@@ -8,12 +8,56 @@ export default function Store() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  // Fake data
-  // Fake data
+
   const fakeStores = [
-    { id: 1, name: "Adidas", category_id: 1 },
-    { id: 2, name: "Nike", category_id: 2 },
-    { id: 3, name: "Puma", category_id: 1 },
+    {
+      id: "1",
+      name: "Volo",
+      description: "This is a shop of selling men clothes.",
+      category_id: 1,
+      vouchers: [
+        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
+        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
+      ],
+
+      images: ["volo.jpg"]
+    },
+
+    {
+      id: "2",
+      name: "Tiny Kids",
+      description: "This is store for selling kids clothes.",
+      category_id: 1,
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["tiny kids.jpeg"]
+    },
+
+    {
+      id: "3",
+      name: "Real Soft House",
+      category_id: 2,
+      description: "this is an institue of courses.",
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["real soft house.jpg"]
+    },
+
+    {
+      id: "4",
+      name: "Dr Mark",
+      description: "Dentist.",
+      category_id: 7,
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["dr mark dentist.jpeg"]
+    },
   ];
 
   const fakeCategories = [

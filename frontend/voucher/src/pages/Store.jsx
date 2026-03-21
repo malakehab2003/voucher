@@ -12,20 +12,47 @@ export default function Store() {
   const fakeStores = [
     {
       id: "1",
-      name: "Store One",
-      description: "This is a fake store description.",
+      name: "Volo",
+      description: "This is a shop of selling men clothes.",
       vouchers: [
         { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
         { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
       ],
+
+      images: ["volo.jpg"]
     },
+
     {
       id: "2",
-      name: "Store Two",
-      description: "Another fake store with vouchers.",
+      name: "Tiny Kids",
+      description: "This is store for selling kids clothes.",
       vouchers: [
         { id: "3", name: "Voucher C", price: 5, quantity: 10 },
       ],
+      
+      images: ["tiny kids.jpeg"]
+    },
+
+    {
+      id: "3",
+      name: "Real Soft House",
+      description: "this is an institue of courses.",
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["real soft house.jpg"]
+    },
+
+    {
+      id: "4",
+      name: "Dr Mark",
+      description: "Dentist.",
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["dr mark dentist.jpeg"]
     },
   ];
 

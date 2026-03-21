@@ -1,15 +1,37 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // 👈 جديد
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const menuRef = useRef();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     setUserLoggedIn(!!token);
+  }, []);
+
+  // Close menu on outside click + scroll
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setMenuOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleAuthClick = () => {
@@ -24,15 +46,24 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="nav-logo">
         Voucher
-        <Link to="/">
+        <Link to="/" onClick={() => setMenuOpen(false)}>
           <img src="logo.png" alt="store" />
         </Link>
       </div>
 
-      <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/stores">Stores</Link></li>
-        <li><Link to="/deals">Deals</Link></li>
+      <ul
+        ref={menuRef}
+        className={`nav-links ${menuOpen ? "active" : ""}`}
+      >
+        <li>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        </li>
+        <li>
+          <Link to="/stores" onClick={() => setMenuOpen(false)}>Stores</Link>
+        </li>
+        <li>
+          <Link to="/deals" onClick={() => setMenuOpen(false)}>Deals</Link>
+        </li>
       </ul>
 
       <div className="right-section">
@@ -40,7 +71,7 @@ export default function Navbar() {
           {userLoggedIn ? "Profile" : "Login"}
         </button>
 
-        <div 
+        <div
           className="menu-icon"
           onClick={() => setMenuOpen(!menuOpen)}
         >
