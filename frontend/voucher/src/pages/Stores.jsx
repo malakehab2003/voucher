@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import "./Stores.css";
 
 export default function Store() {
@@ -90,7 +91,7 @@ export default function Store() {
   };
 
   // Fetch categories
-  const fetchCategories = async () => {
+  const fetchCategories = async (category) => {
     try {
       const res = await axios.get("http://localhost:5000/api/category/list");
       setCategories(res.data.categories);
@@ -100,10 +101,15 @@ export default function Store() {
     }
   };
 
-  useEffect(() => {
-    fetchStores();
-    fetchCategories();
-  }, []);
+  const location = useLocation();
+
+useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const category = params.get("category");
+  
+  fetchStores(category);
+  fetchCategories();
+}, [location.search]);
 
   // When dropdown changes
   const handleCategoryChange = (e) => {

@@ -1,45 +1,81 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+
   const navigate = useNavigate();
   const menuRef = useRef();
+
+  const fakeCategories = [
+    { id: 1, name: "clothes" },
+    { id: 2, name: "courses" },
+    { id: 3, name: "makeup and accessories" },
+    { id: 4, name: "optics and glasses" },
+    { id: 5, name: "gym" },
+    { id: 6, name: "perfumes" },
+    { id: 7, name: "clinics" },
+  ];
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     setUserLoggedIn(!!token);
+    fetchCategories();
   }, []);
 
-  // Close menu on outside click + scroll
+  // fetch categories
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/category/list");
+      setCategories(res.data.categories);
+    } catch (err) {
+      console.log("Using fake categories");
+
+      setCategories(fakeCategories);
+    }
+  };
+
+  // open dropdown
+  const handleCategoriesClick = () => {
+    setCategoriesOpen(!categoriesOpen);
+
+    if (categories.length === 0) {
+      fetchCategories();
+    }
+  };
+
+  // go to stores with filter
+  const handleCategorySelect = (categoryId) => {
+    setCategoriesOpen(false);
+    setMenuOpen(false);
+    navigate(`/stores?category=${categoryId}`);
+  };
+
+  // close menu on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMenuOpen(false);
+        setCategoriesOpen(false);
       }
     };
 
-    const handleScroll = () => {
-      setMenuOpen(false);
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
-    window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const handleAuthClick = () => {
-    if (userLoggedIn) {
-      navigate("/profile");
-    } else {
-      navigate("/login");
-    }
+    if (userLoggedIn) navigate("/profile");
+    else navigate("/login");
   };
 
   return (
@@ -52,9 +88,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <Link to="/" onClick={() => setMenuOpen(false)}>
-          <img src="logo.png" alt="store" />
-        </Link>
+        <img src="/logo.png" alt="logo" />
       </div>
 
       <ul
@@ -62,13 +96,33 @@ export default function Navbar() {
         className={`nav-links ${menuOpen ? "active" : ""}`}
       >
         <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/">Home</Link>
         </li>
+
         <li>
-          <Link to="/stores" onClick={() => setMenuOpen(false)}>Stores</Link>
+          <Link to="/stores">Stores</Link>
         </li>
+
         <li>
-          <Link to="/deals" onClick={() => setMenuOpen(false)}>Deals</Link>
+          <Link to="/deals">Deals</Link>
+        </li>
+
+        {/* 🔥 Categories Dropdown */}
+        <li className="dropdown">
+          <span onClick={handleCategoriesClick}>Categories ⬇</span>
+
+          {categoriesOpen && (
+            <ul className="dropdown-menu">
+              {categories.map((cat) => (
+                <li
+                  key={cat.id}
+                  onClick={() => handleCategorySelect(cat.id)}
+                >
+                  {cat.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
       </ul>
 
