@@ -35,6 +35,12 @@ export default function Home() {
       description: "Dentist",
       images: ["dr_mark_dentist.jpeg"],
     },
+    {
+      id: "5",
+      name: "Max gym",
+      description: "This gym for healthy and athletics.",
+      images: ["max_gym.jpeg"]
+    },
   ];
 
   const fetchStores = async () => {

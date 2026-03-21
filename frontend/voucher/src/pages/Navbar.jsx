@@ -11,7 +11,10 @@ export default function Navbar() {
   const [categories, setCategories] = useState([]);
 
   const navigate = useNavigate();
+
+  // ✅ FIX: two refs instead of wrapping layout
   const menuRef = useRef();
+  const toggleRef = useRef();
 
   const fakeCategories = [
     { id: 1, name: "clothes" },
@@ -29,47 +32,44 @@ export default function Navbar() {
     fetchCategories();
   }, []);
 
-  // fetch categories
   const fetchCategories = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/category/list");
       setCategories(res.data.categories);
     } catch (err) {
       console.log("Using fake categories");
-
       setCategories(fakeCategories);
     }
   };
 
-  // open dropdown
   const handleCategoriesClick = () => {
-    setCategoriesOpen(!categoriesOpen);
-
-    if (categories.length === 0) {
-      fetchCategories();
-    }
+    setCategoriesOpen((prev) => !prev);
   };
 
-  // go to stores with filter
   const handleCategorySelect = (categoryId) => {
     setCategoriesOpen(false);
     setMenuOpen(false);
     navigate(`/stores?category=${categoryId}`);
   };
 
-  // close menu on outside click
+  // ✅ FIXED OUTSIDE CLICK
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        toggleRef.current &&
+        !toggleRef.current.contains(event.target)
+      ) {
         setMenuOpen(false);
         setCategoriesOpen(false);
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
@@ -80,6 +80,8 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
+
+      {/* LOGO */}
       <div className="nav-logo">
         <Link to="/" onClick={() => setMenuOpen(false)}>
           <div className="logo-text">
@@ -91,25 +93,28 @@ export default function Navbar() {
         <img src="/logo.png" alt="logo" />
       </div>
 
+      {/* NAV LINKS */}
       <ul
         ref={menuRef}
         className={`nav-links ${menuOpen ? "active" : ""}`}
       >
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         </li>
 
         <li>
-          <Link to="/stores">Stores</Link>
+          <Link to="/stores" onClick={() => setMenuOpen(false)}>Stores</Link>
         </li>
 
         <li>
-          <Link to="/deals">Deals</Link>
+          <Link to="/deals" onClick={() => setMenuOpen(false)}>Deals</Link>
         </li>
 
-        {/* 🔥 Categories Dropdown */}
+        {/* Categories */}
         <li className="dropdown">
-          <span onClick={handleCategoriesClick}>Categories ⬇</span>
+          <span onClick={handleCategoriesClick}>
+            Categories ⬇
+          </span>
 
           {categoriesOpen && (
             <ul className="dropdown-menu">
@@ -126,18 +131,21 @@ export default function Navbar() {
         </li>
       </ul>
 
+      {/* RIGHT SIDE */}
       <div className="right-section">
         <button className="nav-btn" onClick={handleAuthClick}>
           {userLoggedIn ? "Profile" : "Login"}
         </button>
 
         <div
+          ref={toggleRef}
           className="menu-icon"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((prev) => !prev)}
         >
           ☰
         </div>
       </div>
+
     </nav>
   );
 }

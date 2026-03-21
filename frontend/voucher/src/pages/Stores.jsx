@@ -59,6 +59,18 @@ export default function Store() {
       
       images: ["dr_mark_dentist.jpeg"]
     },
+
+    {
+      id: "5",
+      name: "Max gym",
+      description: "This gym for healthy and athletics.",
+      category_id: 5,
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["max_gym.jpeg"]
+    },
   ];
 
   const fakeCategories = [

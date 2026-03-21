@@ -1,4 +1,6 @@
 import "./Footer.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faInstagram, faTiktok, faTelegram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -28,13 +30,31 @@ export default function Footer() {
           <a href="#">Privacy Policy</a>
         </div>
 
-        {/* NEWSLETTER */}
-        <div className="footer-newsletter">
-          <h4>Subscribe</h4>
-          <p>Get latest deals & offers</p>
-          <div className="newsletter-box">
-            <input type="email" placeholder="Enter your email" />
-            <button>Join</button>
+        {/* SOCIAL MEDIA */}
+        <div className="footer-social">
+          <h4>Follow Us</h4>
+
+          <div className="social-icons">
+            <a href="https://www.facebook.com/share/17xh8WvqXE/" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+
+            <a href="https://www.instagram.com/vouchers.ve?igsh=MXB6c3MwbWdlYXdhbA==" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+
+            <a href="https://www.tiktok.com/@vouchers.ve?_r=1&_t=ZS-94kF7bt768e" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTiktok} />
+            </a>
+
+            <a href="https://t.me/+vHW24oO6g582ZTQ0" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTelegram} />
+            </a>
+
+            <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faWhatsapp} />
+            </a>
+
           </div>
         </div>
 

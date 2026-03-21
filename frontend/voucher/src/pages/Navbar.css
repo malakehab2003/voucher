@@ -94,22 +94,23 @@
 .nav-btn:hover {
   transform: scale(1.05);
 }
-
 .dropdown {
   position: relative;
   cursor: pointer;
 }
 
+/* Desktop dropdown */
 .dropdown-menu {
   position: absolute;
-  top: 30px;
-  left: 0;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
   background: white;
   color: black;
   list-style: none;
   padding: 10px 0;
   border-radius: 10px;
-  width: 150px;
+  width: 180px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   z-index: 100;
 }
@@ -147,4 +148,22 @@
   .nav-links.active {
     display: flex;
   }
+
+  @media screen and (max-width: 768px) {
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    width: 100%;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .dropdown-menu li {
+    padding: 12px;
+    border-top: 1px solid #eee;
+  }
+
+}
 }
