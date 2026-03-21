@@ -3,7 +3,7 @@ import Navbar from './pages/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Footer from "./pages/Footer.jsx";
 import Stores from "./pages/Stores.jsx";
-import Signup from "./pages/signup.jsx";
+import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import Deals from "./pages/Deals.jsx";
 import Profile from "./pages/Profile.jsx";
