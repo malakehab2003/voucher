@@ -165,7 +165,9 @@ export default function Home() {
             <div className="voucher-card" key={store.id}>
               <h3>{store.name}</h3>
               <p>{store.description}</p>
-              <button>View Store</button>
+              <Link to={`/store/${store.id}`}>
+                <button>View Store</button>
+              </Link>
             </div>
           ))}
         </div>

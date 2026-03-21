@@ -32,7 +32,7 @@ export default function Store() {
         { id: "3", name: "Voucher C", price: 5, quantity: 10 },
       ],
       
-      images: ["tiny kids.jpeg"]
+      images: ["tiny_kids.jpeg"]
     },
 
     {
@@ -44,7 +44,7 @@ export default function Store() {
         { id: "3", name: "Voucher C", price: 5, quantity: 10 },
       ],
       
-      images: ["real soft house.jpg"]
+      images: ["real_soft_house.jpg"]
     },
 
     {
@@ -56,7 +56,7 @@ export default function Store() {
         { id: "3", name: "Voucher C", price: 5, quantity: 10 },
       ],
       
-      images: ["dr mark dentist.jpeg"]
+      images: ["dr_mark_dentist.jpeg"]
     },
   ];
 

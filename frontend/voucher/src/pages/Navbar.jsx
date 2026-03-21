@@ -48,7 +48,7 @@ export default function Navbar() {
         <Link to="/" onClick={() => setMenuOpen(false)}>
           <div className="logo-text">
             <span className="main-logo">Voucher</span>
-            <span className="sub-logo">Everything</span>
+            <span className="sub-logo">For Everything</span>
           </div>
         </Link>
 
