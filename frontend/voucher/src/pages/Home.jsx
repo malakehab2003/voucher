@@ -41,6 +41,12 @@ export default function Home() {
       description: "This gym for healthy and athletics.",
       images: ["max_gym.jpeg"]
     },
+    {
+      id: "6",
+      name: "Vatrina",
+      description: "This is a slipper shop for men and women.",
+      images: ["vatrina.png"]
+    },
   ];
 
   const fetchStores = async () => {

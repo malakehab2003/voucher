@@ -25,6 +25,19 @@ export default function Store() {
     },
 
     {
+      id: "6",
+      name: "Vatrina",
+      description: "This is a slipper shop for men and women.",
+      category_id: 1,
+      vouchers: [
+        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
+        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
+      ],
+
+      images: ["vatrina.png"]
+    },
+
+    {
       id: "2",
       name: "Tiny Kids",
       description: "This is store for selling kids clothes.",
