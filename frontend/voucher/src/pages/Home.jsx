@@ -47,6 +47,12 @@ export default function Home() {
       description: "This is a slipper shop for men and women.",
       images: ["vatrina.png"]
     },
+    {
+      id: "7",
+      name: "view optics",
+      description: "This shop for glasses and sunglasses.",
+      images: ["view_optics.jpeg"]
+    },
   ];
 
   const fetchStores = async () => {

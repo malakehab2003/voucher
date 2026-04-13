@@ -25,6 +25,19 @@ export default function Store() {
     },
 
     {
+      id: "7",
+      name: "view optics ",
+      description: "This shop for glasses and sunglasses.",
+      category_id: 4,
+      vouchers: [
+        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
+        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
+      ],
+
+      images: ["view_optics.jpeg"]
+    },
+
+    {
       id: "6",
       name: "Vatrina",
       description: "This is a slipper shop for men and women.",
