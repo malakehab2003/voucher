@@ -63,7 +63,7 @@ export default function Home() {
       id: "9",
       name: "No.1",
       description: "Elegant classic shoes",
-      images: ["No.1 classic shoe.jpeg"]
+      images: ["No.1_classic_shoe.jpeg"]
     },
   ];
 

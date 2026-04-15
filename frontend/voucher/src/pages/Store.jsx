@@ -99,7 +99,7 @@ export default function Store() {
         { id: "3", name: "Voucher C", price: 5, quantity: 10 },
       ],
       
-      images: ["No.1 classic shoe.jpeg"]
+      images: ["No.1_classic_shoe.jpeg"]
     },
 
     {
