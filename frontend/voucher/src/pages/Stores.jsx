@@ -97,6 +97,30 @@ export default function Store() {
       
       images: ["max_gym.jpeg"]
     },
+
+    {
+      id: "8",
+      name: "Shailene",
+      description: "Women clothes store",
+      category_id: 1,
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["shailene.jpeg"]
+    },
+
+    {
+      id: "9",
+      name: "No.1",
+      description: "Elegant classic shoes",
+      category_id: 1,
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["No.1 classic shoe.jpeg"]
+    },
   ];
 
   const fakeCategories = [

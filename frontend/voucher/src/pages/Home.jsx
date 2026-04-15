@@ -53,6 +53,18 @@ export default function Home() {
       description: "This shop for glasses and sunglasses.",
       images: ["view_optics.jpeg"]
     },
+    {
+      id: "8",
+      name: "Shailene",
+      description: "Women clothes store",
+      images: ["shailene.jpeg"]
+    },
+    {
+      id: "9",
+      name: "No.1",
+      description: "Elegant classic shoes",
+      images: ["No.1 classic shoe.jpeg"]
+    },
   ];
 
   const fetchStores = async () => {

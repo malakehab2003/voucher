@@ -81,6 +81,28 @@ export default function Store() {
     },
 
     {
+      id: "8",
+      name: "Shailene",
+      description: "Women clothes store",
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["shailene.jpeg"]
+    },
+
+    {
+      id: "9",
+      name: "No.1",
+      description: "Elegant classic shoes",
+      vouchers: [
+        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
+      ],
+      
+      images: ["No.1 classic shoe.jpeg"]
+    },
+
+    {
       id: "4",
       name: "Dr Mark",
       description: "Dentist.",
