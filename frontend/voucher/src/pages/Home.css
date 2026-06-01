@@ -146,7 +146,7 @@
 
 /* CARD */
 .store-card {
-  min-width: 220px;
+  width: 40%;
   flex: 0 0 auto;
   background: #fff;
   border: 1px solid #eee;

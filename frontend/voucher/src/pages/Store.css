@@ -16,8 +16,8 @@
 
 /* IMAGE */
 .store-image {
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 15px;
   margin-bottom: 15px;
