@@ -9,7 +9,7 @@ export default function Footer() {
 
         {/* BRAND */}
         <div className="footer-brand">
-          <h2>Voucher<span>Store</span></h2>
+          <h2>VE<span>Card</span></h2>
           <p>Your best place to buy digital vouchers instantly.</p>
         </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={faFacebookF} />
             </a>
 
-            <a href="https://www.instagram.com/vouchers.ve?igsh=MXB6c3MwbWdlYXdhbA==" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/ve_card1?igsh=MXB6c3MwbWdlYXdhbA==" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
 

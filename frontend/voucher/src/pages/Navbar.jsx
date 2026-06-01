@@ -85,8 +85,8 @@ export default function Navbar() {
       <div className="nav-logo">
         <Link to="/" onClick={() => setMenuOpen(false)}>
           <div className="logo-text">
-            <span className="main-logo">Voucher</span>
-            <span className="sub-logo">For Everything</span>
+            <span className="main-logo">VE</span>
+            <span className="sub-logo">Card</span>
           </div>
         </Link>
 
@@ -133,9 +133,9 @@ export default function Navbar() {
 
       {/* RIGHT SIDE */}
       <div className="right-section">
-        <button className="nav-btn" onClick={handleAuthClick}>
+        {/* <button className="nav-btn" onClick={handleAuthClick}>
           {userLoggedIn ? "Profile" : "Login"}
-        </button>
+        </button> */}
 
         <div
           ref={toggleRef}

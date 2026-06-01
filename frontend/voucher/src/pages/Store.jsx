@@ -2,129 +2,23 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Store.css";
+import { shops as fakeStores } from "../data/data.js";
 
 export default function Store() {
-  const { id } = useParams(); // store id from URL
+  const { id } = useParams();
   const [store, setStore] = useState(null);
-  const [vouchers, setVouchers] = useState([]);
-
-  // Fake data
-  const fakeStores = [
-    {
-      id: "1",
-      name: "Volo",
-      description: "This is a shop of selling men clothes.",
-      vouchers: [
-        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
-        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
-      ],
-
-      images: ["volo.jpg"]
-    },
-
-    {
-      id: "7",
-      name: "view optics",
-      description: "This shop for glasses and sunglasses.",
-      vouchers: [
-        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
-        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
-      ],
-
-      images: ["view_optics.jpeg"]
-    },
-
-    {
-      id: "6",
-      name: "Vatrina",
-      description: "This is a slipper shop for men and women.",
-      vouchers: [
-        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
-        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
-      ],
-
-      images: ["vatrina.png"]
-    },
-
-    {
-      id: "5",
-      name: "Max gym",
-      description: "This gym for healthy and athletics.",
-      vouchers: [
-        { id: "1", name: "Voucher A", price: 10, discount: 20, quantity: 5 },
-        { id: "2", name: "Voucher B", price: 15, percentage: 10, quantity: 2 },
-      ],
-
-      images: ["max_gym.jpeg"]
-    },
-
-    {
-      id: "2",
-      name: "Tiny Kids",
-      description: "This is store for selling kids clothes.",
-      vouchers: [
-        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
-      ],
-      
-      images: ["tiny kids.jpeg"]
-    },
-
-    {
-      id: "3",
-      name: "Real Soft House",
-      description: "this is an institue of courses.",
-      vouchers: [
-        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
-      ],
-      
-      images: ["real soft house.jpg"]
-    },
-
-    {
-      id: "8",
-      name: "Shailene",
-      description: "Women clothes store",
-      vouchers: [
-        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
-      ],
-      
-      images: ["shailene.jpeg"]
-    },
-
-    {
-      id: "9",
-      name: "No.1",
-      description: "Elegant classic shoes",
-      vouchers: [
-        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
-      ],
-      
-      images: ["No.1_classic_shoe.jpeg"]
-    },
-
-    {
-      id: "4",
-      name: "Dr Mark",
-      description: "Dentist.",
-      vouchers: [
-        { id: "3", name: "Voucher C", price: 5, quantity: 10 },
-      ],
-      
-      images: ["dr mark dentist.jpeg"]
-    },
-  ];
+  const [loading, setLoading] = useState(true);
 
   const fetchStore = async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/store/${id}`);
       setStore(res.data.store);
-      setVouchers(res.data.store.vouchers);
     } catch (err) {
-      console.log("Backend failed, using fake store:", err.message);
-      // Use fake store based on id
-      const fake = fakeStores.find((s) => s.id === id) || fakeStores[0];
+      const fake =
+        fakeStores.find((s) => s.id === id) || fakeStores[0];
       setStore(fake);
-      setVouchers(fake.vouchers);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -132,30 +26,68 @@ export default function Store() {
     fetchStore();
   }, [id]);
 
-  if (!store) return <p>Loading store...</p>;
+  /* ✅ FIXED LOADING */
+  if (loading) return <p>Loading...</p>;
+
+  if (!store) return <p>Store not found</p>;
 
   return (
     <div className="store-page">
-      <h2>{store.name}</h2>
-      {store.description && <p>{store.description}</p>}
 
-      <h3>Vouchers</h3>
-      <div className="vouchers-grid">
-        {vouchers.length === 0 ? (
-          <p>No vouchers available</p>
-        ) : (
-          vouchers.map((v) => (
-            <div key={v.id} className="voucher-card">
-              <h4>{v.name}</h4>
-              <p>Price: ${v.price}</p>
-              {v.discount && <p>Discount: {v.discount}%</p>}
-              {v.percentage && <p>Percentage: {v.percentage}%</p>}
-              <p>Quantity: {v.quantity}</p>
-              <button>Buy Now</button>
-            </div>
-          ))
-        )}
-      </div>
+    <div className="store-header">
+
+      {/* STATUS */}
+      {store.status && (
+        <div className={`status-badge ${store.status.toLowerCase()}`}>
+          {store.status}
+        </div>
+      )}
+
+      {/* IMAGE */}
+      {store.logos?.[0] && (
+        <img
+          className="store-image"
+          src={`/${store.logos[0]}`}
+          alt={store.name}
+        />
+      )}
+
+      <h2>{store.name}</h2>
+
+      <p>{store.description}</p>
+
+      {/* STORE IMAGES */}
+      {store.images?.length > 0 && (
+        <div className="store-images">
+          {store.images.map((img, index) => (
+            <img
+              key={index}
+              src={`/${img}`}
+              alt={`${store.name} ${index}`}
+              className="store-gallery-img"
+            />
+          ))}
+        </div>
+      )}
+
+      {/* PERCENTAGE (IMPORTANT: keep visible in flow) */}
+      {store.percentage && store.percentage !== "" && (
+        <div className="percentage-badge">
+          {store.percentage} OFF
+        </div>
+      )}
+
     </div>
+
+    {/* ADDRESSES */}
+    <div className="store-addresses">
+      <h3>Addresses</h3>
+
+      {store.addresses?.map((a, i) => (
+        <p key={i}>{a}</p>
+      ))}
+    </div>
+
+  </div>
   );
 }

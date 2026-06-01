@@ -59,6 +59,7 @@
 
 /* 🧾 Card */
 .store-card {
+  cursor: pointer;
   background: #fff;
   border-radius: 16px;
   padding: 18px;

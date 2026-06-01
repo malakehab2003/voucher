@@ -1,46 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./Deals.css";
+import { shops as fakeProducts }  from '../data/data.js';
+import { categories as fakeCategories }  from '../data/data.js';
 
 export default function Deals() {
-  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+  const [stores, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-
-  // Fake data
-  const fakeCategories = [
-    { id: 1, name: "clothes" },
-    { id: 2, name: "courses" },
-    { id: 3, name: "makeup and accessories" },
-    { id: 4, name: "optics and glasses" },
-    { id: 5, name: "gym" },
-    { id: 6, name: "perfumes" },
-    { id: 7, name: "clinics" },
-  ];
-
-  const fakeProducts = [
-    {
-      id: "1",
-      name: "Gaming Voucher",
-      price: 10,
-      store: { images: ["https://via.placeholder.com/150"] },
-      category_id: 2,
-    },
-    {
-      id: "2",
-      name: "Shopping Voucher",
-      price: 20,
-      store: { images: ["https://via.placeholder.com/150"] },
-      category_id: 3,
-    },
-    {
-      id: "3",
-      name: "Gift Card",
-      price: 15,
-      store: { images: ["https://via.placeholder.com/150"] },
-      category_id: 1,
-    },
-  ];
 
   const fetchProducts = async (categoryId = "") => {
     try {
@@ -55,7 +24,6 @@ export default function Deals() {
 
       setProducts(res.data.vouchers);
     } catch (err) {
-      console.log("Backend failed, using fake products:", err.message);
       // فلترة على fakeProducts لو فيه category
       if (categoryId) {
         setProducts(fakeProducts.filter((p) => p.category_id === parseInt(categoryId)));
@@ -93,38 +61,63 @@ export default function Deals() {
 
   return (
     <div className="deal-container">
-      <h2>Deals</h2>
+    <h2>Deals</h2>
 
-      {/* Category Filter */}
-      <div className="filter-section">
-        <select value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="">-- Select Category --</option>
-          {categories.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.name}
-            </option>
-          ))}
-        </select>
-        <button onClick={handleReset}>Reset</button>
-      </div>
-
-      {/* Products Grid */}
-      <div className="products-grid">
-        {products.length === 0 ? (
-          <p>No products available</p>
-        ) : (
-          products.map((product) => (
-            <div className="product-card" key={product.id}>
-              {product.store?.images?.[0] && (
-                <img src={product.store.images[0]} alt={product.name} />
-              )}
-              <h3>{product.name}</h3>
-              <p>${product.price}</p>
-              <button>Buy Now</button>
-            </div>
-          ))
-        )}
-      </div>
+    {/* Category Filter */}
+    <div className="filter-section">
+      <select value={selectedCategory} onChange={handleCategoryChange}>
+        <option value="">-- Select Category --</option>
+        {categories.map((cat) => (
+          <option key={cat.id} value={cat.id}>
+            {cat.name}
+          </option>
+        ))}
+      </select>
+      <button onClick={handleReset}>Reset</button>
     </div>
+
+    {/* Products Grid */}
+    <div className="stores-grid">
+      {stores.length === 0 ? (
+        <p>Loading...</p>
+      ) : (
+        stores.map((store) => (
+          <div className="store-card" key={store.id} onClick={() => navigate(`/store/${store.id}`)}>
+
+            {store.status && (
+              <div className={`status-badge ${store.status.toLowerCase()}`}>
+                {store.status}
+              </div>
+            )}
+            
+            {/* image fix */}
+            {store.logos?.[0] ? (
+              <img
+                src={store.logos?.[0]}
+                alt={store.name}
+              />
+            ) : null}
+
+            <h3>{store.name}</h3>
+            <p>{store.description}</p>
+            {store.percentage && (
+              <div className="percentage-badge">
+                {store.percentage} OFF
+              </div>
+            )}
+
+            {/* show addresses if needed */}
+            {store.addresses?.length > 0 &&
+              store.addresses.map((address, index) => (
+                <p key={index}>{address}</p>
+              ))
+            }
+
+            {/* <button>Buy Now</button> */}
+          </div>
+        ))
+      )}
+    </div>
+  </div>
   );
 }

@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { shops as fakeStores }  from '../data/data.js';
+import { categories as fakeCategories }  from '../data/data.js';
 
 export default function Home() {
   const [stores, setStores] = useState([]);
@@ -9,63 +11,6 @@ export default function Home() {
 
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-
-  const fakeStores = [
-    {
-      id: "1",
-      name: "Volo",
-      description: "Men clothes store",
-      images: ["volo.jpg"],
-    },
-    {
-      id: "2",
-      name: "Tiny Kids",
-      description: "Kids clothes store",
-      images: ["tiny_kids.jpeg"],
-    },
-    {
-      id: "3",
-      name: "Real Soft House",
-      description: "Courses institute",
-      images: ["real_soft_house.jpg"],
-    },
-    {
-      id: "4",
-      name: "Dr Mark",
-      description: "Dentist",
-      images: ["dr_mark_dentist.jpeg"],
-    },
-    {
-      id: "5",
-      name: "Max gym",
-      description: "This gym for healthy and athletics.",
-      images: ["max_gym.jpeg"]
-    },
-    {
-      id: "6",
-      name: "Vatrina",
-      description: "This is a slipper shop for men and women.",
-      images: ["vatrina.png"]
-    },
-    {
-      id: "7",
-      name: "view optics",
-      description: "This shop for glasses and sunglasses.",
-      images: ["view_optics.jpeg"]
-    },
-    {
-      id: "8",
-      name: "Shailene",
-      description: "Women clothes store",
-      images: ["shailene.jpeg"]
-    },
-    {
-      id: "9",
-      name: "No.1",
-      description: "Elegant classic shoes",
-      images: ["No.1_classic_shoe.jpeg"]
-    },
-  ];
 
   const fetchStores = async () => {
     try {
@@ -148,7 +93,7 @@ export default function Home() {
               key={stores[index].images[0]}
               className="hero-bg"
               style={{
-                backgroundImage: `url(${stores[index].images[0]})`,
+                backgroundImage: `url(${stores[index].logos[0]})`,
               }}
             ></div>
 
@@ -161,40 +106,34 @@ export default function Home() {
                 <button className="hero-btn">Explore Store</button>
               </Link>
             </div>
-
-            {/* LEFT */}
-            <button className="arrow left" onClick={prevSlide}>
-              ❮
-            </button>
-
-            {/* RIGHT */}
-            <button className="arrow right" onClick={nextSlide}>
-              ❯
-            </button>
-
-            {/* DOTS */}
-            <div className="hero-dots">
-              {stores.map((_, i) => (
-                <span
-                  key={i}
-                  className={i === index ? "dot active" : "dot"}
-                  onClick={() => setIndex(i)}
-                ></span>
-              ))}
-            </div>
           </>
         )}
       </section>
 
+      <img className="hook" src="hook.jpeg" alt="Hook" />
+
       {/* STORE GRID */}
       <section className="store">
-        <h2>Popular Stores</h2>
+        <div className="store-header-row">
+          <h2>Popular Stores</h2>
+        </div>
 
-        <div className="voucher-grid">
+        <div className="store-scroll">
           {stores.map((store) => (
-            <div className="voucher-card" key={store.id}>
+            <div className="store-card" key={store.id}>
+              
+              {/* IMAGE */}
+              {store.logos?.[0] && (
+                <img
+                  src={`/${store.logos[0]}`}
+                  alt={store.name}
+                  className="store-card-img"
+                />
+              )}
+
               <h3>{store.name}</h3>
               <p>{store.description}</p>
+
               <Link to={`/store/${store.id}`}>
                 <button>View Store</button>
               </Link>
