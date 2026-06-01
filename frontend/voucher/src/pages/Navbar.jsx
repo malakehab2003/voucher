@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Navbar.css";
+import { shops as fakeStores }  from '../data/data.js';
+import { categories as fakeCategories }  from '../data/data.js';
 
 export default function Navbar() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -15,16 +17,6 @@ export default function Navbar() {
   // ✅ FIX: two refs instead of wrapping layout
   const menuRef = useRef();
   const toggleRef = useRef();
-
-  const fakeCategories = [
-    { id: 1, name: "clothes" },
-    { id: 2, name: "courses" },
-    { id: 3, name: "makeup and accessories" },
-    { id: 4, name: "optics and glasses" },
-    { id: 5, name: "gym" },
-    { id: 6, name: "perfumes" },
-    { id: 7, name: "clinics" },
-  ];
 
   useEffect(() => {
     const token = localStorage.getItem("token");
