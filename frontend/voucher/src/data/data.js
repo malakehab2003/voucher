@@ -106,7 +106,7 @@ export const shops = [
         percentage: "15-20%",
         status: "Active",
         addresses: ["المديرية مع درب الابشيهي"],
-        logos: [""],
+        logos: ["el-haram.jpeg"],
         images: []
     },
     {
@@ -172,7 +172,7 @@ export const shops = [
         percentage: "15-20%",
         status: "Active",
         addresses: ["المديرية مع درب الابشيهي"],
-        logos: [""],
+        logos: ["el-haram.jpeg"],
         images: []
     },
     {
