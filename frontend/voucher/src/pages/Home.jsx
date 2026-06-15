@@ -110,7 +110,8 @@ export default function Home() {
         )}
       </section>
 
-      <img className="hook" src="hook.jpeg" alt="Hook" />
+      {/* Hook place */}
+      {/* <img className="hook" src="hook.jpeg" alt="Hook" /> */}
 
       {/* STORE GRID */}
       <section className="store">
@@ -120,24 +121,35 @@ export default function Home() {
 
         <div className="store-scroll">
           {stores.map((store) => (
-            <div className="store-card" key={store.id}>
-              
-              {/* IMAGE */}
-              {store.logos?.[0] && (
-                <img
-                  src={`/${store.logos[0]}`}
-                  alt={store.name}
-                  className="store-card-img"
-                />
-              )}
+            <Link to={`/store/${store.id}`} className="store-link">
+              <div className="store-card" key={store.id}>
 
-              <h3>{store.name}</h3>
-              <p>{store.description}</p>
+                {store.status && (
+                  <div className={`status-badge ${store.status.toLowerCase()}`}>
+                    {store.status}
+                  </div>
+                )}
 
-              <Link to={`/store/${store.id}`}>
-                <button>View Store</button>
-              </Link>
-            </div>
+                {/* IMAGE */}
+                {store.logos?.[0] && (
+                  <img
+                    src={`/${store.logos[0]}`}
+                    alt={store.name}
+                    className="store-card-img"
+                  />
+                )}
+
+                <h3>{store.name}</h3>
+                <p>{store.description}</p>
+                {store.percentage && (
+                  <div className="percentage-badge">
+                    {store.percentage} OFF
+                  </div>
+                )}
+
+                  <button>View Store</button>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

@@ -82,7 +82,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <img src="/logo.png" alt="logo" />
+        <img src="/logo.jpeg" alt="logo" />
       </div>
 
       {/* NAV LINKS */}
