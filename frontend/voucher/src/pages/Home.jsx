@@ -8,31 +8,54 @@ import { categories as fakeCategories }  from '../data/data.js';
 export default function Home() {
   const [stores, setStores] = useState([]);
   const [index, setIndex] = useState(0);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryChange = (e) => {
+    const categoryId = e.target.value;
+    setSelectedCategory(categoryId);
+    fetchStores(categoryId);
+  };
+
+  // Reset filter
+  const handleReset = () => {
+    setSelectedCategory("");
+    fetchStores();
+  };
 
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  const fetchStores = async () => {
+  const fetchStores = async (categoryId = "") => {
     try {
-      const res = await axios.get("http://localhost:5000/api/store/list");
+      let url = "http://localhost:5000/api/store/list";
+      if (categoryId) url += `?category_id=${categoryId}`;
 
-      const data = res.data.stores.map((s) => ({
-        ...s,
-        image:
-          s.images?.[0]
-            ? "/" + s.images[0]
-            : "https://via.placeholder.com/800x400?text=" + s.name,
-      }));
-
-      setStores(data);
+      const res = await axios.get(url);
+      setStores(res.data.stores);
     } catch (err) {
-      console.log("Using fake stores");
-      setStores(fakeStores);
+      // Use fake stores if backend fails
+      if (categoryId) {
+        setStores(fakeStores.filter((s) => s.category_id === parseInt(categoryId)));
+      } else {
+        setStores(fakeStores);
+      }
+    }
+  };
+
+  const fetchCategories = async (category) => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/category/list");
+      setCategories(res.data.categories);
+    } catch (err) {
+      console.log("Backend failed, using fake categories:", err.message);
+      setCategories(fakeCategories);
     }
   };
 
   useEffect(() => {
     fetchStores();
+    fetchCategories();
   }, []);
 
   useEffect(() => {
@@ -89,18 +112,20 @@ export default function Home() {
         ) : (
           <>
             {/* Background */}
-            <div
-              key={stores[index].images[0]}
-              className="hero-bg"
-              style={{
-                backgroundImage: `url(${stores[index].logos[0]})`,
-              }}
-            ></div>
+            {stores[index]?.logos?.length > 0 && (
+              <div
+                key={stores[index].logos[0]}
+                className="hero-bg"
+                style={{
+                  backgroundImage: `url(${stores[index].logos[0]})`,
+                }}
+              />
+            )}
 
             {/* Content */}
             <div className="hero-content">
-              <h1>{stores[index].name}</h1>
-              <p>{stores[index].description}</p>
+              <h1>{stores[index]?.name}</h1>
+              <p>{stores[index]?.description}</p>
 
               <Link to="/stores">
                 <button className="hero-btn">Explore Store</button>
@@ -116,7 +141,18 @@ export default function Home() {
       {/* STORE GRID */}
       <section className="store">
         <div className="store-header-row">
-          <h2>Popular Stores</h2>
+          {/* Dropdown */}
+          <div className="filter-section">
+            <select value={selectedCategory} onChange={handleCategoryChange}>
+              <option value="">-- Select Category --</option>
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
+            <button onClick={handleReset}>Reset</button>
+          </div>
         </div>
 
         <div className="store-scroll">
