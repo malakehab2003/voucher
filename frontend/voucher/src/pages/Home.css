@@ -112,7 +112,7 @@
 /* HEADER ROW */
 .store-header-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 15px;
 }
