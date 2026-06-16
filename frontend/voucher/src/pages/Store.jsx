@@ -8,6 +8,7 @@ export default function Store() {
   const { id } = useParams();
   const [store, setStore] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const fetchStore = async () => {
     try {
@@ -65,8 +66,23 @@ export default function Store() {
               src={`/${img}`}
               alt={`${store.name} ${index}`}
               className="store-gallery-img"
+              onClick={() => setSelectedImage(`/${img}`)}
             />
           ))}
+        </div>
+      )}
+
+      {selectedImage && (
+        <div
+          className="image-modal"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Preview"
+            className="modal-image"
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       )}
 

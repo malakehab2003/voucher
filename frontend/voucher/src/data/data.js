@@ -118,7 +118,7 @@ export const shops = [
         status: "Active",
         addresses: ["شارع البيئة (شركة المياه) - سور الاستاد", "شارع نادي المعلمين مع نجف الجامعة", "طريق الاستاد - منطقة الكرفانات"],
         logos: ["juice_box.png"],
-        images: ["juice_box_menu1.jepg", "juice_box_menu2.jepg"]
+        images: ["juice_box_menu1.jpeg", "juice_box_menu2.jpeg"]
     },
     {
         id: "11",
