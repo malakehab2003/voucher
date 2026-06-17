@@ -5,8 +5,10 @@ export const categories = [
     { id: 4, name: "optics and glasses" },
     { id: 5, name: "gym" },
     { id: 6, name: "perfumes" },
-    { id: 7, name: "restaurants" },
+    { id: 7, name: "restaurants & café" },
     { id: 8, name: "shoes" },
+    { id: 9, name: "coffee & Beverages" },
+    { id: 10, name: "Sportswear and sports equipment" },
 ]
 
 export const shops = [
@@ -78,7 +80,7 @@ export const shops = [
     },
     {
         id: "7",
-        name: "VIP",
+        name: "VIP Store",
         description: "Modern and versatile clothing crafted for style, comfort, and confidence in every occasion.",
         category_id: 1,
         percentage: "15%",
@@ -100,7 +102,7 @@ export const shops = [
     },
     {
         id: "9",
-        name: "El-Haram",
+        name: "El-Haram- الهرم",
         description: "Luxurious and long-lasting fragrances that express your personality and leave a memorable impression.",
         category_id: 6,
         percentage: "15-20%",
@@ -113,7 +115,7 @@ export const shops = [
         id: "10",
         name: "Juice Box",
         description: "Refreshing beverages and tasty drinks crafted to energize your day and satisfy every taste.",
-        category_id: 7,
+        category_id: 9,
         percentage: "20%",
         status: "Active",
         addresses: ["شارع البيئة (شركة المياه) - سور الاستاد", "شارع نادي المعلمين مع نجف الجامعة", "طريق الاستاد - منطقة الكرفانات"],
@@ -184,6 +186,149 @@ export const shops = [
         status: "Soon",
         addresses: [""],
         logos: ["max_gym.jpeg"],
+        images: []
+    },
+    {
+        id: "17",
+        name: "pedro",
+        description: "Elegant classic shoes &  casual and sportystyle footwear",
+        category_id:8 ,
+        percentage: "20%",
+        status: "Active",
+        addresses: ["فرع الكلاسيك شارع النحاس مع هارون صدقي امام حي ثاني ", "الرشيد امام التأمين الصحي الجديد"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "18",
+        name: "Vendetta",
+        description: "Modern and versatile clothing crafted for style, comfort, and confidence in every occasion",
+        category_id: 1,
+        percentage: "15%",
+        status: "Active",
+        addresses: ["حسان بن ثابت مع ممتاز غرابة", "المتوكل مع احمد ذكي غرابة"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "19",
+        name: "Milky",
+        description: "Delicious desserts, cakes, and sweets made fresh to satisfy every craving. Enjoy rich milkshakes and refreshing drinks crafted for the perfect sweet experience.",
+        category_id:7 ,
+        percentage: "10%",
+        status: "Active",
+        addresses: ["شارع النادي مع علي مبارك بجوار كريباوي ", "شارع سعيد مع الاشرف"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "20",
+        name: "برقوقة",
+        description: "Delicious meals and sandwiches and satisfy every taste with the secret Saudi recipe ",
+        category_id: 7,
+        percentage: "10%",
+        status: "Active",
+        addresses: ["الاستاد بجوار حديقة الطفل", "محب مع الحلو امام الشيخ جمال"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "21",
+        name: "Sax's",
+        description: "A cozy café serving a wide variety of hot & cold beverages, desserts, and sweet treats. The perfect place to relax, enjoy great flavors, and create memorable moments.",
+        category_id:7 ,
+        percentage: "15%",
+        status: "Active",
+        addresses: ["الاستاد امام شارع 306"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "22",
+        name: "Bellissimo",
+        description: "Specialty coffee crafted with passion, paired with selected desserts and refreshing beverages. An elegant café experience for those who appreciate quality and taste.",
+        category_id: 9,
+        percentage: "30%",
+        status: "Active",
+        addresses: [""],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "23",
+        name: "W Lounge",
+        description: "A restaurant & café with a unique atmosphere, crafted to deliver exceptional vibes, delicious food, and premium drinks. Every visit is an experience worth remembering.",
+        category_id:7 ,
+        percentage: "20%",
+        status: "Active",
+        addresses: ["كورنيش 306 خلف سور نادي سيتي كلوب"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "24",
+        name: "Tea Talk",
+        description: "Refreshing beverages and tasty drinks crafted to energize your day and satisfy every taste",
+        category_id: 9,
+        percentage: "20%",
+        status: "Active",
+        addresses: ["كورنيش الاستاد امام الطب الرياضي بجوار هايبر دالينا", "نادي سيتي كلوب طنطا بجوار ملاعب البادل"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "25",
+        name: " Oak",
+        description: "A unique restaurant & café offering delicious cuisine, premium drinks, and a welcoming atmosphere. Where great food, perfect coffee, and memorable moments come together.",
+        category_id: 7,
+        percentage: "15%",
+        status: "Active",
+        addresses: ["الاستاد امام شارع 306"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "26",
+        name: "shawerma city شاورما سيتي",
+        description: "Authentic shawarma made with premium ingredients, bold flavors, and perfect seasoning. Serving every bite fresh for a truly satisfying experience.",
+        category_id: 7,
+        percentage: "15%",
+        status: "Active",
+        addresses: ["شارع محب بين سعيد و البحر امام كلية تربية"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "27",
+        name: "ipulse gym",
+        description: "A premium fitness & wellness destination combining world-class training with a luxurious spa experience. Designed for those who seek excellence, performance, and ultimate well-being.",
+        category_id: 5,
+        percentage: "10%",
+        status: "Active",
+        addresses: [" شارع قطيني متفرع من شارع سعيد "],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "28",
+        name: "Fit",
+        description: "Providing sports equipment and training accessories for athletes and fitness enthusiasts. Everything you need to train smarter and perform better.",
+        category_id: 10,
+        percentage: "5%",
+        status: "Active",
+        addresses: ["شارع الفاتح مع عثمان بن عفان"],
+        logos: [""],
+        images: []
+    },
+    {
+        id: "29",
+        name: "Eagle",
+        description: "Premium sportswear designed for comfort, performance, and style. Everything you need to stay active, confident, and ready to move.",
+        category_id: 10,
+        percentage: "15%",
+        status: "Active",
+        addresses: ["عثمان بن عفان من شارع الفاتح مع شارع الشيخة صباح"],
+        logos: [""],
         images: []
     },
 ]
