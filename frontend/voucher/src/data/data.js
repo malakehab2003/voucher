@@ -250,7 +250,17 @@ export const shops = [
         category_id: 9,
         percentage: "30%",
         status: "Active",
-        addresses: [""],
+        addresses: [
+            "طنطا - نادى طنطا الرياضى",
+            "طنطا - شارع سعيد أمام سوبر ماركت خير زمان",
+            "طنطا - شارع حسان مع حسن حسيب",
+            "طنطا - شارع النادي امام بوابه النشاط الرياضي",
+            "طنطا - كورنيش طنطا قبل شارع 306",
+            "طنطا - شارع الاشرف مول اعمار الدلتا",
+            "طنطا - داخل نادى طنطا الرياضى",
+            "جامعة السلام الخاصة - طريق الاسكندريه الزراعي",
+            "أول كوبري قحافة - spot8 داخل مغسلة",
+        ],
         logos: ["bellissimo.jpeg"],
         images: []
     },
@@ -262,7 +272,7 @@ export const shops = [
         percentage: "20%",
         status: "Active",
         addresses: ["كورنيش 306 خلف سور نادي سيتي كلوب"],
-        logos: [""],
+        logos: ["w_lounge.jpeg"],
         images: []
     },
     {
@@ -284,7 +294,7 @@ export const shops = [
         percentage: "15%",
         status: "Active",
         addresses: ["الاستاد امام شارع 306"],
-        logos: [""],
+        logos: ["oak.jpeg"],
         images: []
     },
     {
@@ -295,7 +305,7 @@ export const shops = [
         percentage: "15%",
         status: "Active",
         addresses: ["شارع محب بين سعيد و البحر امام كلية تربية"],
-        logos: [""],
+        logos: ["shawarma_city.jpeg"],
         images: []
     },
     {
@@ -306,7 +316,7 @@ export const shops = [
         percentage: "10%",
         status: "Active",
         addresses: [" شارع قطيني متفرع من شارع سعيد "],
-        logos: [""],
+        logos: ["i_pulse_gym.jpeg"],
         images: []
     },
     {
@@ -328,7 +338,7 @@ export const shops = [
         percentage: "15%",
         status: "Active",
         addresses: ["عثمان بن عفان من شارع الفاتح مع شارع الشيخة صباح"],
-        logos: [""],
+        logos: ["eagle.jpeg"],
         images: []
     },
 ]
