@@ -327,7 +327,7 @@ export const shops = [
         percentage: "5%",
         status: "Active",
         addresses: ["شارع الفاتح مع عثمان بن عفان"],
-        logos: [""],
+        logos: ["fit.jpeg"],
         images: []
     },
     {
