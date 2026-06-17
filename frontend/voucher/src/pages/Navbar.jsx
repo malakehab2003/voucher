@@ -14,7 +14,6 @@ export default function Navbar() {
 
   const navigate = useNavigate();
 
-  // ✅ FIX: two refs instead of wrapping layout
   const menuRef = useRef();
   const toggleRef = useRef();
 
@@ -44,7 +43,6 @@ export default function Navbar() {
     navigate(`/stores?category=${categoryId}`);
   };
 
-  // ✅ FIXED OUTSIDE CLICK
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -83,6 +81,12 @@ export default function Navbar() {
         </Link>
 
         <img src="/logo.jpeg" alt="logo" />
+
+        <div className="logo-text">
+            <span className="main-logo">Voucher</span>
+            <span className="sub-logo">For</span>
+            <span className="sub-logo">Everything</span>
+        </div>
       </div>
 
       {/* NAV LINKS */}

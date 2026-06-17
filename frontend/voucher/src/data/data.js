@@ -102,7 +102,7 @@ export const shops = [
     },
     {
         id: "9",
-        name: "El-Haram- الهرم",
+        name: "El-Haram - الهرم",
         description: "Luxurious and long-lasting fragrances that express your personality and leave a memorable impression.",
         category_id: 6,
         percentage: "15-20%",
@@ -160,7 +160,7 @@ export const shops = [
         name: "Barakat",
         description: "Stylish and high-quality sun and optical glasses designed for comfort, protection, and clear vision.",
         category_id: 4,
-        percentage: "",
+        percentage: "15%",
         status: "Active",
         addresses: ["شارع سعيد أمام مستشفي امريكان", "بجوار مستشفي المروه"],
         logos: ["barakat.jpeg"],
@@ -168,7 +168,7 @@ export const shops = [
     },
     {
         id: "15",
-        name: "El-Haram",
+        name: "El-Haram - الهرم",
         description: "Stylish and elegant accessories designed to complete your look and express your personality.",
         category_id: 3,
         percentage: "15-20%",
@@ -196,7 +196,7 @@ export const shops = [
         percentage: "20%",
         status: "Active",
         addresses: ["فرع الكلاسيك شارع النحاس مع هارون صدقي امام حي ثاني ", "الرشيد امام التأمين الصحي الجديد"],
-        logos: [""],
+        logos: ["pedro.jpeg"],
         images: []
     },
     {
@@ -207,7 +207,7 @@ export const shops = [
         percentage: "15%",
         status: "Active",
         addresses: ["حسان بن ثابت مع ممتاز غرابة", "المتوكل مع احمد ذكي غرابة"],
-        logos: [""],
+        logos: ["vendetta.jpeg"],
         images: []
     },
     {
@@ -218,7 +218,7 @@ export const shops = [
         percentage: "10%",
         status: "Active",
         addresses: ["شارع النادي مع علي مبارك بجوار كريباوي ", "شارع سعيد مع الاشرف"],
-        logos: [""],
+        logos: ["milky.jpeg"],
         images: []
     },
     {
@@ -229,7 +229,7 @@ export const shops = [
         percentage: "10%",
         status: "Active",
         addresses: ["الاستاد بجوار حديقة الطفل", "محب مع الحلو امام الشيخ جمال"],
-        logos: [""],
+        logos: ["barquqa.jpeg"],
         images: []
     },
     {
@@ -240,7 +240,7 @@ export const shops = [
         percentage: "15%",
         status: "Active",
         addresses: ["الاستاد امام شارع 306"],
-        logos: [""],
+        logos: ["saxs.jpeg"],
         images: []
     },
     {
@@ -251,7 +251,7 @@ export const shops = [
         percentage: "30%",
         status: "Active",
         addresses: [""],
-        logos: [""],
+        logos: ["bellissimo.jpeg"],
         images: []
     },
     {
@@ -273,7 +273,7 @@ export const shops = [
         percentage: "20%",
         status: "Active",
         addresses: ["كورنيش الاستاد امام الطب الرياضي بجوار هايبر دالينا", "نادي سيتي كلوب طنطا بجوار ملاعب البادل"],
-        logos: [""],
+        logos: ["tea_talk.jpeg"],
         images: []
     },
     {
