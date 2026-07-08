@@ -67,9 +67,10 @@
 }
 
 .modal-image {
-  max-width: 90vw;
+  max-width: 83vw;
   max-height: 90vh;
   border-radius: 10px;
+  padding: 10px;
   cursor: zoom-in;
   transition: transform 0.3s ease;
 }
