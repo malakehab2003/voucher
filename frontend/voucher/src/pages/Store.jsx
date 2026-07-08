@@ -82,6 +82,23 @@ export default function Store() {
 
         <p>{store.description}</p>
 
+        {/* Notes */}
+        {store.note && <div className="store-note">
+          <strong>⚠️ Note:</strong> {store.note}
+        </div>}
+
+        {/* links */}
+        {store.links && <div className="links_store">
+          <a
+            href={store.links}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link_store"
+          >
+            Visit Link
+          </a>
+        </div>}
+
         {/* STORE IMAGES */}
         {store.images?.length > 0 && (
           <div className="store-images">

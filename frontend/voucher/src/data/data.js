@@ -128,6 +128,7 @@ export const shops = [
         description: "Delicious meals and a cozy dining experience crafted to satisfy every taste and moment.",
         category_id: 7,
         percentage: "15%",
+        note: "رولز الخصم شغال علي المنيو الاساسي فقط وليس منيو البوكسات",
         status: "Active",
         addresses: ["تقاطع حسان بن ثابت مع المتوكل", "الإستاد أمام شارع 306", "داخل نادي طنطا"],
         logos: ["rolz.jpeg"],
@@ -248,7 +249,7 @@ export const shops = [
         name: "Bellissimo",
         description: "Specialty coffee crafted with passion, paired with selected desserts and refreshing beverages. An elegant café experience for those who appreciate quality and taste.",
         category_id: 9,
-        percentage: "30%",
+        percentage: "20%",
         status: "Active",
         addresses: [
             "طنطا - نادى طنطا الرياضى",
@@ -344,10 +345,11 @@ export const shops = [
     {
         id: "30",
         name: "911 Ice Cream & Desserts",
-        description: "Premium sportswear designed for comfort, performance, and style. Everything you need to stay active, confident, and ready to move.",
+        description: "A cozy café serving delicious ice cream, desserts, and sweet treats made to satisfy every craving.",
         category_id: 7,
         percentage: "10%",
         status: "Active",
+        links: "https://linktr.ee/911IceCream",
         addresses: ["طنطا : شارع الاستاد - بجوار اسواق نور الدين"],
         logos: ["911.jpeg"],
         images: ["911_menu1.jpeg", "911_menu2.jpeg", "911_menu3.jpeg", "911_menu4.jpeg", "911_menu5.jpeg", "911_menu6.jpeg", "911_menu7.jpeg", "911_menu8.jpeg", "911_menu9.jpeg"]
@@ -355,12 +357,23 @@ export const shops = [
     {
         id: "31",
         name: "Asayel Otour اصايل عطور",
-        description: "Premium sportswear designed for comfort, performance, and style. Everything you need to stay active, confident, and ready to move.",
+        description: "Premium fragrances and stylish accessories, carefully selected to suit every taste.",
         category_id: 6,
         percentage: "15%",
         status: "Active",
         addresses: ["حسان بن ثابت مع المتوكل"],
         logos: ["Asayel Otour.jpeg"],
+        images: []
+    },
+    {
+        id: "32",
+        name: "ten ten",
+        description: "A wide selection of accessories and beauty essentials with great quality at affordable prices.",
+        category_id: 3,
+        percentage: "+5%",
+        status: "Active",
+        addresses: ["طنطا شارع الحلو بين محب والاشرف", "طنطا شارع توت عنخ آمون بجوار مستشفى طيبة"],
+        logos: ["ten_ten.jpeg"],
         images: []
     },
 ]
