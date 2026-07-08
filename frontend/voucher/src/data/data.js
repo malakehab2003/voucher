@@ -219,7 +219,7 @@ export const shops = [
         status: "Active",
         addresses: ["شارع النادي مع علي مبارك بجوار كريباوي ", "شارع سعيد مع الاشرف"],
         logos: ["milky.jpeg"],
-        images: []
+        images: ["milky_menu1.jpeg", "milky_menu2.jpeg"]
     },
     {
         id: "20",
@@ -230,7 +230,7 @@ export const shops = [
         status: "Active",
         addresses: ["الاستاد بجوار حديقة الطفل", "محب مع الحلو امام الشيخ جمال"],
         logos: ["barquqa.jpeg"],
-        images: []
+        images: ["barquqa_menu1.jpeg", "barquqa_menu2.jpeg"]
     },
     {
         id: "21",
@@ -262,7 +262,7 @@ export const shops = [
             "أول كوبري قحافة - spot8 داخل مغسلة",
         ],
         logos: ["bellissimo.jpeg"],
-        images: []
+        images: ["bellissimo_menu1.jpeg", "bellissimo_menu2.jpeg"]
     },
     {
         id: "23",
@@ -284,7 +284,7 @@ export const shops = [
         status: "Active",
         addresses: ["كورنيش الاستاد امام الطب الرياضي بجوار هايبر دالينا", "نادي سيتي كلوب طنطا بجوار ملاعب البادل"],
         logos: ["tea_talk.jpeg"],
-        images: []
+        images: ["tea_talk_menu1.jpeg", "tea_talk_menu2.jpeg", "tea_talk_menu3.jpeg", "tea_talk_menu4.jpeg", "tea_talk_menu5.jpeg", "tea_talk_menu6.jpeg", "tea_talk_menu7.jpeg", "tea_talk_menu8.jpeg", "tea_talk_menu9.jpeg", "tea_talk_menu10.jpeg", "tea_talk_menu11.jpeg", "tea_talk_menu12.jpeg", "tea_talk_menu13.jpeg"]
     },
     {
         id: "25",
@@ -295,7 +295,7 @@ export const shops = [
         status: "Active",
         addresses: ["الاستاد امام شارع 306"],
         logos: ["oak.jpeg"],
-        images: []
+        images: ["oak_menu1.jpeg", "oak_menu2.jpeg", "oak_menu3.jpeg", "oak_menu4.jpeg", "oak_menu5.jpeg", "oak_menu6.jpeg", "oak_menu7.jpeg", "oak_menu8.jpeg", "oak_menu9.jpeg", "oak_menu10.jpeg", "oak_menu11.jpeg", "oak_menu12.jpeg", "oak_menu13.jpeg", "oak_menu14.jpeg", "oak_menu15.jpeg", "oak_menu16.jpeg", "oak_menu17.jpeg", "oak_menu18.jpeg", "oak_menu19.jpeg", "oak_menu20.jpeg", "oak_menu21.jpeg", "oak_menu22.jpeg", "oak_menu23.jpeg", "oak_menu24.jpeg", "oak_menu25.jpeg", "oak_menu26.jpeg", "oak_menu27.jpeg", "oak_menu28.jpeg"]
     },
     {
         id: "26",
@@ -306,7 +306,7 @@ export const shops = [
         status: "Active",
         addresses: ["شارع محب بين سعيد و البحر امام كلية تربية"],
         logos: ["shawarma_city.jpeg"],
-        images: []
+        images: ["shawarma_city_menu1.jpeg", "shawarma_city_menu2.jpeg", "shawarma_city_menu3.jpeg", "shawarma_city_menu4.jpeg"]
     },
     {
         id: "27",
@@ -339,6 +339,28 @@ export const shops = [
         status: "Active",
         addresses: ["عثمان بن عفان من شارع الفاتح مع شارع الشيخة صباح"],
         logos: ["eagle.jpeg"],
+        images: []
+    },
+    {
+        id: "30",
+        name: "911 Ice Cream & Desserts",
+        description: "Premium sportswear designed for comfort, performance, and style. Everything you need to stay active, confident, and ready to move.",
+        category_id: 7,
+        percentage: "10%",
+        status: "Active",
+        addresses: ["طنطا : شارع الاستاد - بجوار اسواق نور الدين"],
+        logos: ["911.jpeg"],
+        images: ["911_menu1.jpeg", "911_menu2.jpeg", "911_menu3.jpeg", "911_menu4.jpeg", "911_menu5.jpeg", "911_menu6.jpeg", "911_menu7.jpeg", "911_menu8.jpeg", "911_menu9.jpeg"]
+    },
+    {
+        id: "31",
+        name: "Asayel Otour اصايل عطور",
+        description: "Premium sportswear designed for comfort, performance, and style. Everything you need to stay active, confident, and ready to move.",
+        category_id: 6,
+        percentage: "15%",
+        status: "Active",
+        addresses: ["حسان بن ثابت مع المتوكل"],
+        logos: ["Asayel Otour.jpeg"],
         images: []
     },
 ]
