@@ -131,7 +131,7 @@ export const shops = [
         status: "Active",
         addresses: ["تقاطع حسان بن ثابت مع المتوكل", "الإستاد أمام شارع 306", "داخل نادي طنطا"],
         logos: ["rolz.jpeg"],
-        images: []
+        images: ["rolz_menu1.jpeg", "rolz_menu2.jpeg", "rolz_menu3.jpeg"]
     },
     {
         id: "12",
