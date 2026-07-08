@@ -179,7 +179,7 @@ export const shops = [
         images: []
     },
     {
-        id: "16",
+        id: "27",
         name: "Max GYM",
         description: "A modern fitness space designed to help you build strength, improve health, and achieve your goals.",
         category_id: 5,
@@ -242,7 +242,7 @@ export const shops = [
         status: "Active",
         addresses: ["الاستاد امام شارع 306"],
         logos: ["saxs.jpeg"],
-        images: []
+        images: ["saxs_menu (1).jpeg", "saxs_menu (2).jpeg", "saxs_menu (3).jpeg", "saxs_menu (4).jpeg", "saxs_menu (5).jpeg", "saxs_menu (6).jpeg", "saxs_menu (7).jpeg", "saxs_menu (8).jpeg", "saxs_menu (9).jpeg", "saxs_menu (10).jpeg", "saxs_menu (11).jpeg", "saxs_menu (12).jpeg", "saxs_menu (13).jpeg", "saxs_menu (14).jpeg", "saxs_menu (15).jpeg", "saxs_menu (16).jpeg", "saxs_menu (17).jpeg", "saxs_menu (18).jpeg", "saxs_menu (19).jpeg", "saxs_menu (20).jpeg", "saxs_menu (21).jpeg", "saxs_menu (22).jpeg", "saxs_menu (23).jpeg", "saxs_menu (24).jpeg", "saxs_menu (25).jpeg", "saxs_menu (26).jpeg", "saxs_menu (27).jpeg", "saxs_menu (28).jpeg", "saxs_menu (29).jpeg", "saxs_menu (30).jpeg", "saxs_menu (31).jpeg", "saxs_menu (32).jpeg", "saxs_menu (33).jpeg", "saxs_menu (34).jpeg", "saxs_menu (35).jpeg", "saxs_menu (36).jpeg", "saxs_menu (37).jpeg", "saxs_menu (38).jpeg"]
     },
     {
         id: "22",
@@ -310,7 +310,7 @@ export const shops = [
         images: ["shawarma_city_menu1.jpeg", "shawarma_city_menu2.jpeg", "shawarma_city_menu3.jpeg", "shawarma_city_menu4.jpeg"]
     },
     {
-        id: "27",
+        id: "16",
         name: "ipulse gym",
         description: "A premium fitness & wellness destination combining world-class training with a luxurious spa experience. Designed for those who seek excellence, performance, and ultimate well-being.",
         category_id: 5,
@@ -375,5 +375,37 @@ export const shops = [
         addresses: ["طنطا شارع الحلو بين محب والاشرف", "طنطا شارع توت عنخ آمون بجوار مستشفى طيبة"],
         logos: ["ten_ten.jpeg"],
         images: []
+    },
+    {
+        id: "33",
+        name: "Asayel Otour اصايل عطور",
+        description: "Premium fragrances and stylish accessories, carefully selected to suit every taste.",
+        category_id: 3,
+        percentage: "15%",
+        status: "Active",
+        addresses: ["حسان بن ثابت مع المتوكل"],
+        logos: ["Asayel Otour.jpeg"],
+        images: []
+    },
+    {
+        id: "22",
+        name: "Bellissimo",
+        description: "Specialty coffee crafted with passion, paired with selected desserts and refreshing beverages. An elegant café experience for those who appreciate quality and taste.",
+        category_id: 7,
+        percentage: "20%",
+        status: "Active",
+        addresses: [
+            "طنطا - نادى طنطا الرياضى",
+            "طنطا - شارع سعيد أمام سوبر ماركت خير زمان",
+            "طنطا - شارع حسان مع حسن حسيب",
+            "طنطا - شارع النادي امام بوابه النشاط الرياضي",
+            "طنطا - كورنيش طنطا قبل شارع 306",
+            "طنطا - شارع الاشرف مول اعمار الدلتا",
+            "طنطا - داخل نادى طنطا الرياضى",
+            "جامعة السلام الخاصة - طريق الاسكندريه الزراعي",
+            "أول كوبري قحافة - spot8 داخل مغسلة",
+        ],
+        logos: ["bellissimo.jpeg"],
+        images: ["bellissimo_menu1.jpeg", "bellissimo_menu2.jpeg"]
     },
 ]
