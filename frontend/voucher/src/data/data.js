@@ -272,6 +272,7 @@ export const shops = [
         category_id:7 ,
         percentage: "20%",
         status: "Active",
+        links: "https://wlounge.menuo.pro",
         addresses: ["كورنيش 306 خلف سور نادي سيتي كلوب"],
         logos: ["w_lounge.jpeg"],
         images: []
