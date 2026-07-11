@@ -108,6 +108,38 @@
   height: auto;
 }
 
+/* register */
+.register-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  background: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.register-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.register-btn:active {
+  transform: scale(0.98);
+}
+
 /* STORE */
 /* HEADER ROW */
 .store-header-row {

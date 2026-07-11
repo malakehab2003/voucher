@@ -23,6 +23,24 @@
   margin-bottom: 15px;
 }
 
+/* button */
+.register-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
 /* NAME */
 .store-header h2 {
   margin: 10px 0;

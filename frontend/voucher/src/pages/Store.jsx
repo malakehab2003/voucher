@@ -71,11 +71,29 @@ export default function Store() {
 
         {/* LOGO */}
         {store.logos?.[0] && (
-          <img
-            className="store-image"
-            src={`/${store.logos[0]}`}
-            alt={store.name}
-          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "15px",
+            }}
+          >
+            <img
+              className="store-image"
+              src={`/${store.logos[0]}`}
+              alt={store.name}
+            />
+
+            <a
+              href="https://ve-voucher-000.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="register-btn"
+            >
+              سجل الآن
+            </a>
+          </div>
         )}
 
         <h2>{store.name}</h2>

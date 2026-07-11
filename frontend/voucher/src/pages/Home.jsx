@@ -135,6 +135,20 @@ export default function Home() {
         )}
       </section>
 
+
+        {/* REGISTER NOW */}
+        <section className="register-section">
+          <a
+            href="https://ve-voucher-000.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="register-btn"
+          >
+            سجل الآن
+          </a>
+        </section>
+
+
       {/* Hook place */}
       {/* <img className="hook" src="hook.jpeg" alt="Hook" /> */}
 
