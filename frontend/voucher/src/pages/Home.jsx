@@ -148,7 +148,8 @@ export default function Home() {
             سجل الآن
           </a>
         </section>
-
+)}
+      
 
       {/* Hook place */}
       {/* <img className="hook" src="hook.jpeg" alt="Hook" /> */}
