@@ -8,6 +8,7 @@ const WHATSAPP_NUMBER = "201025311724";
 export default function Signup() {
   const [searchParams] = useSearchParams();
   const placeCode = searchParams.get("place") || "";
+  const sourceCode = searchParams.get("source") || placeCode || "direct";
 
   const [form, setForm] = useState({ name: "", whatsapp: "" });
   const [sending, setSending] = useState(false);
@@ -22,6 +23,7 @@ export default function Signup() {
     setSending(true);
 
     const category = placeCode ? decodeURIComponent(placeCode) : "";
+    const source = decodeURIComponent(sourceCode);
 
     const whatsappMessage =
 `الاسم: ${form.name}
@@ -39,7 +41,7 @@ export default function Signup() {
         first_name: form.name,
         whatsapp: form.whatsapp,
         category,
-        source: placeCode || "direct",
+        source,
       })],
       { type: "text/plain;charset=utf-8" }
     );
@@ -54,7 +56,7 @@ export default function Signup() {
           first_name: form.name,
           whatsapp: form.whatsapp,
           category,
-          source: placeCode || "direct",
+          source,
         }),
         keepalive: true,
       }).catch((err) => console.error("خطأ في الاتصال بالسيرفر:", err));
