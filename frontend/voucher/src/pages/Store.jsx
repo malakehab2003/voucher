@@ -86,7 +86,7 @@ export default function Store() {
             />
 
             <a
-              href="https://ve-voucher-000.vercel.app/"
+              href={https://ve-voucher-001.vercel.app/?place=${encodeURIComponent(store.name)}}
               target="_blank"
               rel="noopener noreferrer"
               className="register-btn"
