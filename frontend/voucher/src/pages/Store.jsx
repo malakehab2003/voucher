@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./Store.css";
 import { shops as fakeStores } from "../data/data.js";
@@ -85,14 +85,12 @@ export default function Store() {
               alt={store.name}
             />
 
-            <a
-              href={https://ve-voucher-001.vercel.app/?place=${encodeURIComponent(store.name)}}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={`/signup?place=${encodeURIComponent(store.name)}`}
               className="register-btn"
             >
               سجل الآن
-            </a>
+            </Link>
           </div>
         )}
 
