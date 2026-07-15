@@ -137,6 +137,7 @@ export default function Home() {
 
 
         {/* REGISTER NOW */}
+      {false&&(
         <section className="register-section">
           <a
             href="https://ve-voucher-000.vercel.app/"
