@@ -32,7 +32,7 @@
 }
 
 .filter-section select:focus {
-  border-color: #6a5acd;
+  border-color: #ea7d22;
   box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.1);
 }
 
@@ -86,7 +86,7 @@
 
 /* 🏷 Title */
 .store-card h3 {
-  color: #6a5acd;
+  color: #ea7d22;
   margin: 8px 0;
   font-size: 18px;
   font-weight: 600;
@@ -98,7 +98,7 @@
   padding: 10px 22px;
   border: none;
   border-radius: 25px;
-  background: linear-gradient(135deg, #6a5acd, #00bfff);
+  background: linear-gradient(135deg, #ea7d22, #e49454);
   color: white;
   font-weight: bold;
   cursor: pointer;

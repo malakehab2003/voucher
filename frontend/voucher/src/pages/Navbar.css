@@ -31,13 +31,13 @@
 .main-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #6a5acd;
+  color: #ea7d22;
 }
 
 /* subtitle */
 .sub-logo {
   font-size: 15px;
-  color: #6a5acd;
+  color: #ea7d22;
   margin-top: 2px;
   font-weight: bold;
 }
@@ -76,7 +76,7 @@
 }
 
 .nav-links a:hover {
-  color: #6a5acd;
+  color: #ea7d22;
 }
 
 /* BUTTON */
@@ -84,7 +84,7 @@
   padding: 8px 18px;
   border-radius: 20px;
   border: none;
-  background: linear-gradient(135deg, #6a5acd, #00bfff);
+  background: linear-gradient(135deg, #ea7d22, #ec9147);
   color: white;
   font-weight: bold;
   cursor: pointer;

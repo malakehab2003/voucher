@@ -114,7 +114,7 @@ useEffect(() => {
 
               {/* show addresses if needed */}
               {store.addresses?.length > 0 &&
-                store.addresses.map((address, index) => (
+                store.addresses.slice(0, 3).map((address, index) => (
                   <p key={index}>{address}</p>
                 ))
               }
