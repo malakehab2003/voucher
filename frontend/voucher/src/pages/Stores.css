@@ -98,7 +98,7 @@
   padding: 10px 22px;
   border: none;
   border-radius: 25px;
-  background: linear-gradient(135deg, #ea7d22, #e49454);
+  /* background: linear-gradient(135deg, #ea7d22, #e49454); */
   color: white;
   font-weight: bold;
   cursor: pointer;

@@ -199,7 +199,7 @@ export default function Home() {
                   </div>
                 )}
 
-                  <button>View Store</button>
+                  <button className="view-button">View Store</button>
               </div>
             </Link>
           ))}
